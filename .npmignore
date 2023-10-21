@@ -1,0 +1,10 @@
+examples
+coverage
+.nx
+.vscode
+.idea
+src
+tsconfig.base.json
+tsconfig.json
+tsconfig.lib.json
+tsconfig.spec.json
