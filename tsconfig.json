@@ -1,27 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "jsx": "react-jsx",
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "commonjs",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@awesome-editor/source": [
-        "src/index.ts"
-      ]
-    }
+    "jsx": "react-jsx"
   },
   "files": [],
   "include": [],
@@ -32,5 +11,6 @@
     {
       "path": "./tsconfig.spec.json"
     }
-  ]
+  ],
+  "extends": "./tsconfig.base.json"
 }

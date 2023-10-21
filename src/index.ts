@@ -1,1 +1,2 @@
-export * from './lib/awesome-editor';
+export * from './tiptap';
+export * from './components';
