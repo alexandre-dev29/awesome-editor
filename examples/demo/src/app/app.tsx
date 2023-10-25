@@ -1,9 +1,15 @@
-import { Spinner } from '@proudlydev/awesome-editor';
+import { AwesomeEditor } from '@proudlydev/awesome-editor';
 
 export function App() {
+  const uploadMethod = async (): Promise<string> => {
+    return '';
+  };
   return (
     <div>
-      <Spinner />
+      <AwesomeEditor
+        content={'# Alexandre mwenze'}
+        imageUploadMethod={uploadMethod}
+      />
     </div>
   );
 }
