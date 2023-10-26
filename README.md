@@ -1,11 +1,5 @@
 # awesome-editor
+## [Work in progress]
 
-This library was generated with [Nx](https://nx.dev).
-
-## Building
-
-Run `nx build awesome-editor` to build the library.
-
-## Running unit tests
-
-Run `nx test awesome-editor` to execute the unit tests via [Jest](https://jestjs.io).
+This editor is a markdown editor close to the one in notion or medium or hashnode
+still in dev and must be polished.
