@@ -7,7 +7,6 @@
     "test": "nx test"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.17",
     "@hookform/resolvers": "^3.3.2",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "^1.0.7",
@@ -88,8 +87,9 @@
     "vitest": "~0.32.0"
   },
   "type": "commonjs",
-  "main": "./src/index.js",
-  "typings": "./src/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "typings": "./dist/index.d.ts",
   "description": "This library was generated with [Nx](https://nx.dev).",
   "repository": {
     "type": "git",
