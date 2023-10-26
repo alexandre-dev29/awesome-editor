@@ -5,7 +5,7 @@ export function App() {
     return '';
   };
   return (
-    <div>
+    <div style={{ padding: '4rem', width: '80%', margin: '0 auto' }}>
       <AwesomeEditor
         content={'# Alexandre mwenze'}
         imageUploadMethod={uploadMethod}

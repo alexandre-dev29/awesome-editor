@@ -1,7 +1,7 @@
-import '../styles/global.css';
-import { tipTapEditorConfig } from '../config/tiptap';
+import './styles/global.css';
+import { tipTapEditorConfig } from './config/tiptap';
 import { useEditor } from '@tiptap/react';
-import Tiptap from './tiptap/Tiptap';
+import Tiptap from './components/tiptap/Tiptap';
 
 export const AwesomeEditor = ({
   content,

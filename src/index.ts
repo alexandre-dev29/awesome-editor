@@ -1,2 +1,1 @@
-export * from './tiptap';
-export * from './components';
+export * from './AwesomeEditor';

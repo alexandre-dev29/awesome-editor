@@ -16,9 +16,6 @@
         --border: 214.3 31.8% 91.4%;
         --input: 214.3 31.8% 91.4%;
 
-        --card: 0 0% 100%;
-        --card-foreground: 222.2 47.4% 11.2%;
-
         --primary: 222.2 47.4% 11.2%;
         --primary-foreground: 210 40% 98%;
 
@@ -51,9 +48,6 @@
 
         --border: 216 34% 17%;
         --input: 216 34% 17%;
-
-        --card: 224 71% 4%;
-        --card-foreground: 213 31% 91%;
 
         --primary: 210 40% 98%;
         --primary-foreground: 222.2 47.4% 1.2%;
@@ -180,55 +174,6 @@ html .dark[data-theme="light"] {
     display: none;
 }
 
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-    @apply text-green-500;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-    @apply text-purple-500;
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-    @apply text-yellow-500;
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-    @apply text-blue-500;
-}
-
-.token.function,
-.token.class-name {
-    @apply text-pink-500;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-    @apply text-yellow-500;
-}
-
-code[class*='language-'],
-pre[class*='language-'] {
-    @apply text-[15px];
-
-}
 
 div [data-rehype-pretty-code-fragment] {
     margin-top: 1rem;
@@ -368,4 +313,200 @@ div[data-youtube-video] {
 
 .tippyEmbeddedPopup button {
     @apply bg-blue-400;
+}
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #ABB2BF;
+    background: #0d0d0d;
+    font-family: "JetBrains Mono", Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    display: block !important;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background: #383e49;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #9aa2b1;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #282c34;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #5C6370;
+}
+
+.token.punctuation {
+    color: #abb2bf;
+}
+
+.token.selector,
+.token.tag {
+    color: #e06c75;
+}
+
+.token.property,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.attr-name,
+.token.deleted {
+    color: #d19a66;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.builtin,
+.token.inserted {
+    color: #98c379;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #56b6c2;
+}
+
+.token.atrule,
+.token.keyword {
+    color: #c678dd;
+}
+
+.token.function {
+    color: #61afef;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #c678dd;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+pre.line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+    position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 0;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+.line-numbers-rows > span {
+    pointer-events: none;
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #5C6370;
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+
+.ulTipTap {
+    list-style: circle !important;
+}
+
+.ulTipTap > li {
+    list-style: circle !important;
+}
+
+
+.olTipTap {
+    list-style: decimal !important;
+}
+
+.linkTipTap {
+    @apply underline underline-offset-4 cursor-pointer ;
+}
+
+a {
+    @apply underline underline-offset-4 cursor-pointer ;
 }
