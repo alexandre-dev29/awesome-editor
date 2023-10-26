@@ -4,6 +4,8 @@ coverage
 .vscode
 .idea
 src
+.github
+.changeset
 tsconfig.base.json
 tsconfig.json
 tsconfig.lib.json
