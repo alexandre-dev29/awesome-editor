@@ -20,8 +20,9 @@ declare module '@tiptap/core' {
 
 export default Node.create<IframeOptions>({
   name: 'iframe',
-
   group: 'block',
+  draggable: true,
+  selectable: true,
 
   atom: true,
 

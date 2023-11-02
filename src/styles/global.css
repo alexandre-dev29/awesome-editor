@@ -298,6 +298,10 @@ div[data-youtube-video] {
     @apply my-6;
 }
 
+.iframe-wrapper {
+    padding: 1rem;
+}
+
 .embedded_frame {
     position: absolute;
     top: 0;
@@ -308,10 +312,15 @@ div[data-youtube-video] {
 }
 
 .tippyEmbeddedPopup {
-    @apply text-black bg-white dark:bg-gray-900 border-2 p-4 shadow-sm w-[550px] mb-4;
+    @apply text-black bg-white dark:bg-gray-900 border-2 p-4 shadow-sm min-w-[450px] mb-4;
 }
 
-.tippyEmbeddedPopup button {
+.tippyEmbeddedPopup label {
+    @apply text-black;
+}
+
+
+.tippyEmbeddedPopup button[type="submit"] {
     @apply bg-blue-400;
 }
 

@@ -12,14 +12,14 @@ import { toast } from '../ui/use-toast';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Tippy from '@tippyjs/react';
 import { Editor, NodeViewWrapper } from '@tiptap/react';
-import { YoutubeIcon } from 'lucide-react';
 import React, { BaseSyntheticEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { EmbeddedType } from '../../types/types';
+import { CodepenIcon, CodesandboxIcon, YoutubeIcon } from 'lucide-react';
 
 interface EmbeddableElementProp {
-  node: { attrs: any };
+  node: { attrs: any; nodeSize: number };
   updateAttributes: (attrs: any) => void;
   selected: boolean;
   editor: Editor;
@@ -46,19 +46,9 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
     },
   });
 
-  const setIsVisible = (isVisible: boolean) => {
-    updateAttributes({
-      isVisible: isVisible,
-    });
-  };
   const togglePopup = (isPopUpVisible: boolean) => {
     updateAttributes({
       isPopUpVisible: isPopUpVisible,
-    });
-  };
-  const setEmbeddedUrl = (embeddedUrl: string) => {
-    updateAttributes({
-      embeddedUrl: embeddedUrl,
     });
   };
 
@@ -75,8 +65,7 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
         const youtubeId = result[1];
 
         const finalYoutubeUrl = `https://www.youtube.com/embed/${youtubeId}?feature=oembed`;
-        setEmbeddedUrl(finalYoutubeUrl);
-        setIsVisible(false);
+        editor.commands.setIframe({ src: finalYoutubeUrl });
       } else {
         toast({
           title: 'Error',
@@ -85,8 +74,7 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
         });
       }
     } else {
-      setEmbeddedUrl(values.linkUrl);
-      setIsVisible(false);
+      editor.commands.setIframe({ src: values.linkUrl });
     }
   }
 
@@ -102,15 +90,27 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
         return '';
     }
   };
+  const getPlaceholderIcon = (): JSX.Element => {
+    switch (node.attrs.embeddedType) {
+      case EmbeddedType.Youtube:
+        return <YoutubeIcon className={'h-12 w-12 text-white'} />;
+      case EmbeddedType.CodePen:
+        return <CodepenIcon className={'h-12 w-12 text-white'} />;
+      case EmbeddedType.CodeSandBox:
+        return <CodesandboxIcon className={'h-12 w-12 text-white'} />;
+      default:
+        return <YoutubeIcon className={'h-12 w-12 text-white'} />;
+    }
+  };
 
   return (
     <NodeViewWrapper className="dark:text-white" key={Math.random()}>
       <div
         onClick={() => togglePopup(true)}
-        style={{ height: '100px' }}
+        style={{ height: '150px' }}
         className={`${
           node.attrs.isVisible ? 'flex' : 'hidden'
-        } cursor-pointer  bg-red-400 w-full gap-4  border-dashed dark:border-gray-600 border-gray-400 border-2 rounded-xl  justify-center items-center`}
+        } cursor-pointer  bg-gray-200 w-full gap-4  border-dashed dark:border-gray-600 border-gray-400 border-2 rounded-xl  justify-center items-center`}
       >
         <Tippy
           interactive={true}
@@ -157,24 +157,8 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
         >
           <p></p>
         </Tippy>
-        <YoutubeIcon className={'h-12 w-12 text-white'} />
-        <span>Insert a Youtube link</span>
-      </div>
-
-      <div
-        className={`${node.attrs.isVisible ? 'hidden' : 'block'} relative p-8`}
-        data-youtube-video
-      >
-        <iframe
-          src={`${node.attrs.embeddedUrl}`}
-          allow={
-            node.attrs.embeddedType === EmbeddedType.Youtube
-              ? `accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share`
-              : ''
-          }
-          allowFullScreen
-          className="relative top-0 left-0 w-[95%] h-[95%] border-0 "
-        ></iframe>
+        {getPlaceholderIcon()}
+        <span>Insert a {`${node.attrs.embeddedType} link`} link</span>
       </div>
     </NodeViewWrapper>
   );

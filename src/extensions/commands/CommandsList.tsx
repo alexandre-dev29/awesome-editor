@@ -64,8 +64,8 @@ class CommandList extends Component {
     const { items } = this.props;
     return (
       <div
-        style={{ height: '320px' }}
-        className="items relative z-10 inline-block overflow-auto  text-sm text-gray-500 transition-all duration-300 bg-white border border-gray-200 rounded-lg shadow-sm w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
+        style={{ height: '360px' }}
+        className="relative z-10 inline-block overflow-auto  text-sm text-gray-500 transition-all duration-300 bg-white border border-gray-200 rounded-lg shadow-sm w-96 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
       >
         {items.map((item, index) => {
           return (

@@ -13,6 +13,7 @@ import EmbedableExtension from '../extensions/EmbedableExtension';
 import { createImageExtension } from '../extensions/customImage';
 import Iframe from '../extensions/Iframe';
 import { Link } from '@tiptap/extension-link';
+import createImagePlaceHolder from '../extensions/ImagePlaceholderExtension';
 
 export const tipTapEditorConfig = (
   content: string,
@@ -44,6 +45,7 @@ export const tipTapEditorConfig = (
           render: renderItems,
         },
       }),
+      createImagePlaceHolder(imageUploadMethod),
       EmbedableExtension,
       Typography,
       Highlight.configure({

@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import Tippy from '@tippyjs/react';
 import { Editor } from '@tiptap/react';
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from '../ui/form';
 import { Button } from '../ui/button';
+import { UploadFn } from '../../types/types';
 
 const HandleImage = ({
   editor,
@@ -25,7 +26,7 @@ const HandleImage = ({
   isEdit,
 }: {
   editor: Editor | null;
-  imageUploadMethod?: (imageFile: any) => Promise<string>;
+  imageUploadMethod: UploadFn;
   isOpen: boolean;
   setIsOpen: any;
   isEdit: boolean;
@@ -56,11 +57,11 @@ const HandleImage = ({
     }
   }
 
-  async function handleImageUpload(file: any) {
-    const imageFile = file.target.files[0];
-    const result = await imageUploadMethod(imageFile);
+  async function handleFileUpload(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files[0];
+    const result = await imageUploadMethod(file);
     if (editor) {
-      editor.commands.insertContent(`<img src="${result}" alt="${result}" />`);
+      editor.commands.insertContent(`<img src="${result}" alt="" />`);
       setIsOpen(false);
       form.reset({ imageUrl: '', altText: '' });
     }
@@ -74,7 +75,7 @@ const HandleImage = ({
       visible={isOpen}
       delay={100}
       className={
-        'bg-white dark:bg-gray-900 border-2 p-4 shadow-sm  w-[400px] mb-4'
+        'bg-white dark:bg-gray-900 border-2 p-4 shadow-sm  min-w-[450px] mb-4'
       }
       content={
         <Tabs defaultValue="withUrl" className="w-[400px]">
@@ -85,7 +86,7 @@ const HandleImage = ({
           <TabsContent value="uploadNewImage">
             <div className="grid w-full max-w-sm items-center gap-1.5">
               <Label htmlFor="picture">Picture</Label>
-              <Input id="picture" type="file" onChange={handleImageUpload} />
+              <Input id="picture" type="file" onChange={handleFileUpload} />
             </div>
           </TabsContent>
           <TabsContent value="withUrl">

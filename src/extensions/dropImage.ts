@@ -1,6 +1,5 @@
 import { Plugin } from 'prosemirror-state';
-
-export type UploadFn = (image: File) => Promise<string>;
+import { UploadFn } from '../types/types';
 
 export const dropImagePlugin = (upload: UploadFn) => {
   return new Plugin({

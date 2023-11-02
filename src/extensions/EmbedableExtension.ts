@@ -1,4 +1,4 @@
-import { mergeAttributes, Node, ReactNodeViewRenderer } from '@tiptap/react';
+import { Node, ReactNodeViewRenderer } from '@tiptap/react';
 import { EmbeddedType } from '../types/types';
 import EmbeddableTipTapComponent from '../components/tiptap/EmbeddableElement';
 
@@ -30,16 +30,16 @@ export default Node.create({
         () =>
         ({ commands }: any) => {
           return commands.insertContent({
-            type: 'embeddableElement',
+            type: 'iframe',
           });
         },
     };
   },
   parseHTML() {
-    return [{ tag: 'embeddableElement' }];
+    return [{ tag: 'iframe' }];
   },
   renderHTML({ HTMLAttributes }) {
-    return ['embeddableElement', mergeAttributes(HTMLAttributes)];
+    return ['div', this.options.HTMLAttributes, ['iframe', HTMLAttributes]];
   },
   addNodeView() {
     return ReactNodeViewRenderer(EmbeddableTipTapComponent);

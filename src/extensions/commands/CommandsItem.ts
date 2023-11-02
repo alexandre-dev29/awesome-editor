@@ -7,6 +7,7 @@ import {
   Heading1,
   Heading2,
   Heading3,
+  ImagePlusIcon,
   ListIcon,
   ListOrderedIcon,
   TextQuoteIcon,
@@ -73,6 +74,20 @@ const getSuggestionItems = (values: any) => {
       },
     },
     {
+      title: 'Image',
+      icon: ImagePlusIcon,
+      description: 'Add an image',
+      command: ({ editor, range }: any) => {
+        editor
+          .chain()
+          .focus()
+          .deleteRange(range)
+          .insertPlaceHolderImage()
+          .run();
+      },
+    },
+
+    {
       title: 'Quotes',
       icon: TextQuoteIcon,
       description: 'Insert Quotes',
@@ -110,7 +125,7 @@ const getSuggestionItems = (values: any) => {
           .chain()
           .focus()
           .deleteRange(range)
-          .insertContent(`<embeddableElement></embeddableElement>`)
+          .insertContent(`<iframe></iframe>`)
           .run();
       },
     },
@@ -123,9 +138,7 @@ const getSuggestionItems = (values: any) => {
           .chain()
           .focus()
           .deleteRange(range)
-          .insertContent(
-            `<embeddableElement embeddedType="CodeSandBox"></embeddableElement>`
-          )
+          .insertContent(`<iframe embeddedType="CodeSandBox"></iframe>`)
           .run();
       },
     },
@@ -138,9 +151,7 @@ const getSuggestionItems = (values: any) => {
           .chain()
           .focus()
           .deleteRange(range)
-          .insertContent(
-            `<embeddableElement embeddedType="CodePen"></embeddableElement>`
-          )
+          .insertContent(`<iframe embeddedType="CodePen"></iframe>`)
           .run();
       },
     },
@@ -148,7 +159,7 @@ const getSuggestionItems = (values: any) => {
     .filter((item) =>
       item.title.toLowerCase().startsWith(values.query.toLowerCase())
     )
-    .slice(0, 10);
+    .slice(0, 20);
 };
 
 export default getSuggestionItems;

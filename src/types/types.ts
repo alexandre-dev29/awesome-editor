@@ -3,3 +3,5 @@ export enum EmbeddedType {
   CodePen = 'CodePen',
   CodeSandBox = 'CodeSandBox',
 }
+
+export type UploadFn = (image: File) => Promise<string>;

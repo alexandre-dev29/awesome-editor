@@ -2,6 +2,7 @@ import './styles/global.css';
 import { tipTapEditorConfig } from './config/tiptap';
 import { useEditor } from '@tiptap/react';
 import Tiptap from './components/tiptap/Tiptap';
+import { Toaster } from './components/ui/toaster';
 
 export const AwesomeEditor = ({
   content,
@@ -14,6 +15,7 @@ export const AwesomeEditor = ({
 
   return (
     <>
+      <Toaster />
       <Tiptap editor={editor} />
     </>
   );

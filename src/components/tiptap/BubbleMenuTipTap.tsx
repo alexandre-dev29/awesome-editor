@@ -1,11 +1,5 @@
 import { useState } from 'react';
 import { Toggle } from '../ui/toggle';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '../ui/tooltip';
 import HandleImage from './HandleImage';
 import HandleLinks from './handleLinks';
 import HandleProgrammingLanguage from './handleProgrammingLanguage';
@@ -125,16 +119,7 @@ const BubbleMenuTipTap = ({
                     variant={'outline'}
                     aria-label="Change languages"
                   >
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger>
-                          <LanguagesIcon className="h-4 w-4" />
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>Change Programming language</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
+                    <LanguagesIcon className="h-4 w-4" />
                   </Toggle>
                 ) : (
                   ''
@@ -175,16 +160,7 @@ const BubbleMenuTipTap = ({
                   variant={'outline'}
                   aria-label="Highlight"
                 >
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger>
-                        <HighlighterIcon className="h-4 w-4" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Highlight</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                  <HighlighterIcon className="h-4 w-4" />
                 </Toggle>
               </div>
             ) : (
