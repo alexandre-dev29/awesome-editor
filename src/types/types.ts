@@ -1,3 +1,5 @@
+import { EditorOptions } from '@tiptap/core';
+
 export enum EmbeddedType {
   Youtube = 'Youtube',
   CodePen = 'CodePen',
@@ -5,3 +7,7 @@ export enum EmbeddedType {
 }
 
 export type UploadFn = (image: File) => Promise<string>;
+export type EditorProps = {
+  content: string;
+  imageUploadMethod: UploadFn;
+} & Partial<EditorOptions>;

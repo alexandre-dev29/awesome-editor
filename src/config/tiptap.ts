@@ -14,10 +14,12 @@ import { createImageExtension } from '../extensions/customImage';
 import Iframe from '../extensions/Iframe';
 import { Link } from '@tiptap/extension-link';
 import createImagePlaceHolder from '../extensions/ImagePlaceholderExtension';
+import { EditorProps, UploadFn } from '../types/types';
+import { Editor } from '@tiptap/react';
 
-export const tipTapEditorConfig = (
+const tipTapEditorConfig = (
   content: string,
-  imageUploadMethod: () => Promise<string>
+  imageUploadMethod: UploadFn
 ): Partial<EditorOptions> => {
   return {
     extensions: [
@@ -71,3 +73,6 @@ export const tipTapEditorConfig = (
     editorProps: {},
   };
 };
+
+export const getEditor = ({ content, imageUploadMethod }: EditorProps) =>
+  new Editor({ ...tipTapEditorConfig(content, imageUploadMethod) });

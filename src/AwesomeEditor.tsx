@@ -1,18 +1,9 @@
 import './styles/global.css';
-import { tipTapEditorConfig } from './config/tiptap';
-import { useEditor } from '@tiptap/react';
 import Tiptap from './components/tiptap/Tiptap';
 import { Toaster } from './components/ui/toaster';
+import { Editor } from '@tiptap/react';
 
-export const AwesomeEditor = ({
-  content,
-  imageUploadMethod,
-}: {
-  content: string;
-  imageUploadMethod: () => Promise<string>;
-}) => {
-  const editor = useEditor(tipTapEditorConfig(content, imageUploadMethod));
-
+export const AwesomeEditor = ({ editor }: { editor: Editor }) => {
   return (
     <>
       <Toaster />
