@@ -1,5 +1,11 @@
 # @proudlydev/awesome-editor
 
+## 0.1.2
+
+### Patch Changes
+
+- 8e9047d: remove unnecessary libs
+
 ## 0.1.1
 
 ### Patch Changes
