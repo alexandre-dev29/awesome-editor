@@ -30,16 +30,20 @@ export default Node.create({
         () =>
         ({ commands }: any) => {
           return commands.insertContent({
-            type: 'iframe',
+            type: 'embeddableElement',
           });
         },
     };
   },
   parseHTML() {
-    return [{ tag: 'iframe' }];
+    return [{ tag: 'embeddableElement' }];
   },
   renderHTML({ HTMLAttributes }) {
-    return ['div', this.options.HTMLAttributes, ['iframe', HTMLAttributes]];
+    return [
+      'div',
+      this.options.HTMLAttributes,
+      ['embeddableElement', HTMLAttributes],
+    ];
   },
   addNodeView() {
     return ReactNodeViewRenderer(EmbeddableTipTapComponent);

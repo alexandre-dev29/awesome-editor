@@ -4,15 +4,15 @@ import {
   CodeIcon,
   CodepenIcon,
   CodesandboxIcon,
-  ImagePlusIcon,
-  YoutubeIcon,
   DividerIcon,
   Heading1,
   Heading2,
   Heading3,
+  ImagePlusIcon,
   ListIcon,
   ListOrderedIcon,
   TextQuoteIcon,
+  YoutubeIcon,
 } from '../../components/ui/Icons';
 
 const getSuggestionItems = (values: any) => {
@@ -126,7 +126,7 @@ const getSuggestionItems = (values: any) => {
           .chain()
           .focus()
           .deleteRange(range)
-          .insertContent(`<iframe></iframe>`)
+          .insertContent(`<embeddableElement></embeddableElement>`)
           .run();
       },
     },
@@ -139,7 +139,9 @@ const getSuggestionItems = (values: any) => {
           .chain()
           .focus()
           .deleteRange(range)
-          .insertContent(`<iframe embeddedType="CodeSandBox"></iframe>`)
+          .insertContent(
+            `<embeddableElement embeddedType="CodeSandBox"></embeddableElement>`
+          )
           .run();
       },
     },
@@ -152,7 +154,9 @@ const getSuggestionItems = (values: any) => {
           .chain()
           .focus()
           .deleteRange(range)
-          .insertContent(`<iframe embeddedType="CodePen"></iframe>`)
+          .insertContent(
+            `<embeddableElement embeddedType="CodePen"></embeddableElement>`
+          )
           .run();
       },
     },

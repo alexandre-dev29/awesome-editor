@@ -22,6 +22,7 @@ interface EmbeddableElementProp {
   editor: Editor;
   getPos: () => number;
   extension: Node;
+  deleteNode: any;
 }
 
 const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
@@ -30,6 +31,7 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
   updateAttributes,
   getPos,
   extension,
+  deleteNode,
 }) => {
   const formForLink = useForm<{ linkUrl: string }>({
     defaultValues: {
@@ -47,6 +49,8 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
     values: { linkUrl: string },
     event?: BaseSyntheticEvent
   ) {
+    const from = getPos() - 1;
+    const to = from + node.nodeSize + 4;
     event?.preventDefault();
     if (node.attrs.embeddedType === EmbeddedType.Youtube) {
       const expression =
@@ -55,9 +59,13 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
       if (result) {
         const youtubeId = result[1];
         const finalYoutubeUrl = `https://www.youtube.com/embed/${youtubeId}?feature=oembed`;
+        console.log(`from : ${from}`);
+        console.log(`to : ${to}`);
         editor.commands.setIframe({ src: finalYoutubeUrl });
+        editor.commands.deleteRange({ from, to });
       }
     } else {
+      editor.commands.deleteRange({ from, to });
       editor.commands.setIframe({ src: values.linkUrl });
     }
   }
