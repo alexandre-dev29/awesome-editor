@@ -22,17 +22,8 @@ dependencies:
   '@tiptap/core':
     specifier: 2.1.11
     version: 2.1.11(@tiptap/pm@2.1.11)
-  '@tiptap/extension-dropcursor':
-    specifier: 2.1.11
-    version: 2.1.11(@tiptap/core@2.1.11)(@tiptap/pm@2.1.11)
-  '@tiptap/extension-floating-menu':
-    specifier: 2.1.11
-    version: 2.1.11(@tiptap/core@2.1.11)(@tiptap/pm@2.1.11)
   '@tiptap/extension-highlight':
     specifier: ^2.1.11
-    version: 2.1.11(@tiptap/core@2.1.11)
-  '@tiptap/extension-image':
-    specifier: 2.1.11
     version: 2.1.11(@tiptap/core@2.1.11)
   '@tiptap/extension-link':
     specifier: 2.1.11
@@ -3714,17 +3705,6 @@ packages:
       '@tiptap/pm': 2.1.11
     dev: false
 
-  /@tiptap/extension-floating-menu@2.1.11(@tiptap/core@2.1.11)(@tiptap/pm@2.1.11):
-    resolution: { integrity: sha512-ExeoOQ6nT0CY0eWx6WjbG+osurXLXa7XrqIdhCAcTmzBAlGiKt8khX9qaZ+QF+BRK1r1lja2KX+5/fpLK7Dt1g== }
-    peerDependencies:
-      '@tiptap/core': ^2.0.0
-      '@tiptap/pm': ^2.0.0
-    dependencies:
-      '@tiptap/core': 2.1.11(@tiptap/pm@2.1.11)
-      '@tiptap/pm': 2.1.11
-      tippy.js: 6.3.7
-    dev: false
-
   /@tiptap/extension-floating-menu@2.1.12(@tiptap/core@2.1.11)(@tiptap/pm@2.1.11):
     resolution: { integrity: sha512-uo0ydCJNg6AWwLT6cMUJYVChfvw2PY9ZfvKRhh9YJlGfM02jS4RUG/bJBts6R37f+a5FsOvAVwg8EvqPlNND1A== }
     peerDependencies:
@@ -3788,14 +3768,6 @@ packages:
     dependencies:
       '@tiptap/core': 2.1.11(@tiptap/pm@2.1.11)
       '@tiptap/pm': 2.1.11
-    dev: false
-
-  /@tiptap/extension-image@2.1.11(@tiptap/core@2.1.11):
-    resolution: { integrity: sha512-dFFRvzl9F4fEcG95nyka72TeV127C1UVaMm816GHoFlVEFGV4yJ8NKgzT3UEDgFcs6OPwPlt8tuHuDeYm7EVOQ== }
-    peerDependencies:
-      '@tiptap/core': ^2.0.0
-    dependencies:
-      '@tiptap/core': 2.1.11(@tiptap/pm@2.1.11)
     dev: false
 
   /@tiptap/extension-italic@2.1.12(@tiptap/core@2.1.11):
