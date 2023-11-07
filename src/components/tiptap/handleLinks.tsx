@@ -1,9 +1,7 @@
-import { zodResolver } from '@hookform/resolvers/zod';
 import Tippy from '@tippyjs/react';
 import { Editor } from '@tiptap/react';
 import React, { BaseSyntheticEvent } from 'react';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 import { Button } from '../ui/button';
 import {
   Form,
@@ -24,20 +22,14 @@ const HandleLinks = ({
   isOpen: boolean;
   setIsOpen: any;
 }) => {
-  const formSchemaForLink = z.object({
-    linkUrl: z.string().url({
-      message: 'Please write a correct url.',
-    }),
-  });
-  const formForLink = useForm<z.infer<typeof formSchemaForLink>>({
-    resolver: zodResolver(formSchemaForLink),
+  const formForLink = useForm<{ linkUrl: string }>({
     defaultValues: {
       linkUrl: '',
     },
   });
 
   function onSubmitLinkReplacement(
-    values: z.infer<typeof formSchemaForLink>,
+    values: { linkUrl: string },
     event?: BaseSyntheticEvent
   ) {
     event?.preventDefault();

@@ -1,9 +1,7 @@
-import { zodResolver } from '@hookform/resolvers/zod';
 import Tippy from '@tippyjs/react';
 import { Editor } from '@tiptap/react';
 import React, { ChangeEvent } from 'react';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
@@ -31,23 +29,14 @@ const HandleImage = ({
   setIsOpen: any;
   isEdit: boolean;
 }) => {
-  const formSchema = z.object({
-    imageUrl: z.string().url({
-      message: 'Please write a correct url.',
-    }),
-    altText: z
-      .string()
-      .min(5, { message: 'the alt text must have at least 5 letter' }),
-  });
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<{ imageUrl: string; altText: string }>({
     defaultValues: {
       imageUrl: '',
       altText: '',
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: { imageUrl: string; altText: string }) {
     if (editor) {
       editor.commands.insertContent(
         `<img src="${values.imageUrl}" alt="${values.altText}" />`
