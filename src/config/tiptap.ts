@@ -15,9 +15,9 @@ import Iframe from '../extensions/Iframe';
 import { Link } from '@tiptap/extension-link';
 import createImagePlaceHolder from '../extensions/ImagePlaceholderExtension';
 import { EditorProps, UploadFn } from '../types/types';
-import { Editor } from '@tiptap/react';
+import { Editor, useEditor } from '@tiptap/react';
 
-const tipTapEditorConfig = (
+const editorDefaultConfig = (
   content: string,
   imageUploadMethod: UploadFn
 ): Partial<EditorOptions> => {
@@ -74,5 +74,8 @@ const tipTapEditorConfig = (
   };
 };
 
+export const useEditorDefault = ({ content, imageUploadMethod }: EditorProps) =>
+  useEditor(editorDefaultConfig(content, imageUploadMethod));
+
 export const getEditor = ({ content, imageUploadMethod }: EditorProps) =>
-  new Editor({ ...tipTapEditorConfig(content, imageUploadMethod) });
+  new Editor({ ...editorDefaultConfig(content, imageUploadMethod) });

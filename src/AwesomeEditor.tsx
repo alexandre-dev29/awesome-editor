@@ -3,7 +3,7 @@ import Tiptap from './components/tiptap/Tiptap';
 import { Toaster } from './components/ui/toaster';
 import { Editor } from '@tiptap/react';
 
-export const AwesomeEditor = ({ editor }: { editor: Editor }) => {
+export const AwesomeEditor = ({ editor }: { editor: Editor | null }) => {
   return (
     <>
       <Toaster />
