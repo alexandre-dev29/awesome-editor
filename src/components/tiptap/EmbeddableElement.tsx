@@ -8,15 +8,12 @@ import {
   FormMessage,
 } from '../ui/form';
 import { Input } from '../ui/input';
-import { toast } from '../ui/use-toast';
-import { zodResolver } from '@hookform/resolvers/zod';
 import Tippy from '@tippyjs/react';
 import { Editor, NodeViewWrapper } from '@tiptap/react';
 import React, { BaseSyntheticEvent } from 'react';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 import { EmbeddedType } from '../../types/types';
-import { CodepenIcon, CodesandboxIcon, YoutubeIcon } from 'lucide-react';
+import { CodepenIcon, CodesandboxIcon, YoutubeIcon } from '../ui/Icons';
 
 interface EmbeddableElementProp {
   node: { attrs: any; nodeSize: number };
@@ -34,13 +31,7 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
   getPos,
   extension,
 }) => {
-  const formSchemaForLink = z.object({
-    linkUrl: z.string().url({
-      message: 'Please write a correct url.',
-    }),
-  });
-  const formForLink = useForm<z.infer<typeof formSchemaForLink>>({
-    resolver: zodResolver(formSchemaForLink),
+  const formForLink = useForm<{ linkUrl: string }>({
     defaultValues: {
       linkUrl: '',
     },
@@ -53,7 +44,7 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
   };
 
   function onSubmitLinkReplacement(
-    values: z.infer<typeof formSchemaForLink>,
+    values: { linkUrl: string },
     event?: BaseSyntheticEvent
   ) {
     event?.preventDefault();
@@ -63,15 +54,8 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
       const result = values.linkUrl.match(expression);
       if (result) {
         const youtubeId = result[1];
-
         const finalYoutubeUrl = `https://www.youtube.com/embed/${youtubeId}?feature=oembed`;
         editor.commands.setIframe({ src: finalYoutubeUrl });
-      } else {
-        toast({
-          title: 'Error',
-          description: 'please enter a valid youtube link',
-          variant: 'destructive',
-        });
       }
     } else {
       editor.commands.setIframe({ src: values.linkUrl });

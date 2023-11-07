@@ -1,18 +1,19 @@
 import { Editor } from '@tiptap/react';
+
 import {
   CodeIcon,
   CodepenIcon,
   CodesandboxIcon,
-  DivideIcon,
+  ImagePlusIcon,
+  YoutubeIcon,
+  DividerIcon,
   Heading1,
   Heading2,
   Heading3,
-  ImagePlusIcon,
   ListIcon,
   ListOrderedIcon,
   TextQuoteIcon,
-  YoutubeIcon,
-} from 'lucide-react';
+} from '../../components/ui/Icons';
 
 const getSuggestionItems = (values: any) => {
   return [
@@ -110,7 +111,7 @@ const getSuggestionItems = (values: any) => {
     },
     {
       title: 'Divider',
-      icon: DivideIcon,
+      icon: DividerIcon,
       description: 'Insert an horizontal line',
       command: ({ editor, range }: any) => {
         editor.chain().focus().deleteRange(range).setHorizontalRule().run();

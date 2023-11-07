@@ -8,16 +8,14 @@ import {
   FormMessage,
 } from '../ui/form';
 import { Input } from '../ui/input';
-import { zodResolver } from '@hookform/resolvers/zod';
 import Tippy from '@tippyjs/react';
 import { Editor, NodeViewWrapper } from '@tiptap/react';
 import React, { BaseSyntheticEvent, ChangeEvent } from 'react';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 import { UploadFn } from '../../types/types';
-import { ImagePlusIcon } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Label } from '../ui/label';
+import { ImagePlusIcon } from '../ui/Icons';
 
 interface EmbeddableElementProp {
   node: { attrs: any; nodeSize: number };
@@ -37,14 +35,7 @@ const ImagePlaceHolderComponent: React.FC<EmbeddableElementProp> = ({
   extension,
   uploadFn,
 }) => {
-  const formSchemaForLink = z.object({
-    imageUrl: z.string().url({
-      message: 'Please write a correct url.',
-    }),
-    altText: z.string(),
-  });
-  const formForLink = useForm<z.infer<typeof formSchemaForLink>>({
-    resolver: zodResolver(formSchemaForLink),
+  const formForLink = useForm<{ imageUrl: string; altText: string }>({
     defaultValues: {
       imageUrl: '',
       altText: '',
@@ -58,7 +49,7 @@ const ImagePlaceHolderComponent: React.FC<EmbeddableElementProp> = ({
   };
 
   function onSubmitLinkReplacement(
-    values: z.infer<typeof formSchemaForLink>,
+    values: { imageUrl: string; altText: string },
     event?: BaseSyntheticEvent
   ) {
     event?.preventDefault();

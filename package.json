@@ -8,12 +8,10 @@
     "release": "pnpm run build && changeset publish"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.3.2",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
-    "@radix-ui/react-toast": "^1.1.5",
     "@radix-ui/react-toggle": "^1.0.3",
     "@tippyjs/react": "^4.2.6",
     "@tiptap/core": "2.1.11",
@@ -31,7 +29,6 @@
     "@tiptap/suggestion": "2.1.11",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "lucide-react": "^0.288.0",
     "prosemirror-state": "^1.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -39,9 +36,7 @@
     "tailwind-merge": "^1.14.0",
     "tippy.js": "^6.3.7",
     "tiptap-extension-code-block-prism": "0.0.2-e",
-    "tiptap-markdown": "^0.8.2",
-    "tslib": "^2.3.0",
-    "zod": "^3.22.4"
+    "tiptap-markdown": "^0.8.2"
   },
   "peerDependencies": {
     "react": "*",
