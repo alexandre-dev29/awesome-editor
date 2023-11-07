@@ -13,9 +13,9 @@ import { Editor, NodeViewWrapper } from '@tiptap/react';
 import React, { BaseSyntheticEvent, ChangeEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import { UploadFn } from '../../types/types';
-import { ImagePlusIcon } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Label } from '../ui/label';
+import { ImagePlusIcon } from '../ui/Icons';
 
 interface EmbeddableElementProp {
   node: { attrs: any; nodeSize: number };

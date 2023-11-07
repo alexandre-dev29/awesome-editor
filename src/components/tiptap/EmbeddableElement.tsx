@@ -13,7 +13,7 @@ import { Editor, NodeViewWrapper } from '@tiptap/react';
 import React, { BaseSyntheticEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import { EmbeddedType } from '../../types/types';
-import { CodepenIcon, CodesandboxIcon, YoutubeIcon } from 'lucide-react';
+import { CodepenIcon, CodesandboxIcon, YoutubeIcon } from '../ui/Icons';
 
 interface EmbeddableElementProp {
   node: { attrs: any; nodeSize: number };

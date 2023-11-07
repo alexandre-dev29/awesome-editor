@@ -5,15 +5,15 @@ import HandleLinks from './handleLinks';
 import HandleProgrammingLanguage from './handleProgrammingLanguage';
 import { BubbleMenu, Editor } from '@tiptap/react';
 import {
-  Bold,
+  BoldIcon,
   CodeIcon,
-  Edit,
+  EditIcon,
   HighlighterIcon,
-  Italic,
+  ItalicIcon,
   LanguagesIcon,
-  Link,
+  LinkIcon,
   Strikethrough,
-} from 'lucide-react';
+} from '../ui/Icons';
 
 const isImageSelection = (editor: Editor | any) => {
   return (
@@ -77,7 +77,7 @@ const BubbleMenuTipTap = ({
                   aria-pressed={`${editor.isActive('bold') ? 'true' : 'false'}`}
                   data-state={`${editor.isActive('bold') ? 'on' : 'off'}`}
                 >
-                  <Bold className="h-4 w-4" />
+                  <BoldIcon className="h-4 w-4" />
                 </Toggle>
                 <Toggle
                   onClick={() => editor.chain().focus().toggleItalic().run()}
@@ -88,7 +88,7 @@ const BubbleMenuTipTap = ({
                   }`}
                   data-state={`${editor.isActive('italic') ? 'on' : 'off'}`}
                 >
-                  <Italic className="h-4 w-4" />
+                  <ItalicIcon className="h-4 w-4" />
                 </Toggle>
 
                 <Toggle
@@ -142,7 +142,7 @@ const BubbleMenuTipTap = ({
                   aria-pressed={`${editor.isActive('link') ? 'true' : 'false'}`}
                   data-state={`${editor.isActive('link') ? 'on' : 'off'}`}
                 >
-                  <Link className="h-4 w-4" />
+                  <LinkIcon className="h-4 w-4" />
                 </Toggle>
                 <Toggle
                   onClick={() => {
@@ -165,7 +165,7 @@ const BubbleMenuTipTap = ({
               </div>
             ) : (
               <div className={'pr-2.5'}>
-                <Edit
+                <EditIcon
                   className={
                     'cursor-pointer transition-all duration-300 hover:scale-105 transform-gpu'
                   }

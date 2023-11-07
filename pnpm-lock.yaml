@@ -64,9 +64,6 @@ dependencies:
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
-  lucide-react:
-    specifier: ^0.288.0
-    version: 0.288.0(react@18.2.0)
   prosemirror-state:
     specifier: ^1.4.3
     version: 1.4.3
@@ -7735,14 +7732,6 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
-
-  /lucide-react@0.288.0(react@18.2.0):
-    resolution: { integrity: sha512-ikhb/9LOkq9orPoLV9lLC4UYyoXQycBhIgH7H59ahOkk0mkcAqkD52m84RXedE/qVqZHW8rEJquInT4xGmsNqw== }
-    peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /lz-string@1.5.0:
     resolution: { integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ== }
