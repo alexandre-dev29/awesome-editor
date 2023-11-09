@@ -1,5 +1,11 @@
 # @proudlydev/awesome-editor
 
+## 0.1.3
+
+### Patch Changes
+
+- 29dd6ad: resolve error due to the EmbeddableElement.tsx
+
 ## 0.1.2
 
 ### Patch Changes
