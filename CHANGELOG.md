@@ -1,5 +1,11 @@
 # @proudlydev/awesome-editor
 
+## 0.1.7
+
+### Patch Changes
+
+- a9b1946: Change little signature for edit image upload and adape the example porject
+
 ## 0.1.6
 
 ### Patch Changes
