@@ -54,7 +54,7 @@ const HandleIframe = ({
       visible={isOpen}
       delay={100}
       className={
-        'bg-white dark:bg-gray-900 border-2 p-4 shadow-sm  min-w-[450px] mb-4'
+        'bg-white dark:bg-gray-900 border-2 p-4 shadow-sm  min-w-[450px] mb-4 popUpHandling'
       }
       content={
         <Form {...form}>
