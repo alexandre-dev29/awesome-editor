@@ -59,7 +59,9 @@ const ImagePlaceHolderComponent: React.FC<EmbeddableElementProp> = ({
   }
 
   async function handleFileUpload(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files[0];
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const file = event?.target?.files[0];
     const result = await uploadFn(file);
     editor.commands.insertContent(`<img src="${result}" alt="" />`);
   }

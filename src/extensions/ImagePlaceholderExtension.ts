@@ -31,7 +31,7 @@ const createImagePlaceHolder = (uploadFn: UploadFn) =>
       };
     },
     addNodeView() {
-      return ReactNodeViewRenderer((props) =>
+      return ReactNodeViewRenderer((props: any) =>
         ImagePlaceHolder({ ...props, uploadFn })
       );
     },

@@ -47,12 +47,16 @@ const HandleImage = ({
   }
 
   async function handleFileUpload(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files[0];
-    const result = await imageUploadMethod(file);
-    if (editor) {
-      editor.commands.insertContent(`<img src="${result}" alt="" />`);
-      setIsOpen(false);
-      form.reset({ imageUrl: '', altText: '' });
+    if (event !== null) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const file = event.target?.files[0];
+      const result = await imageUploadMethod(file);
+      if (editor) {
+        editor.commands.insertContent(`<img src="${result}" alt="" />`);
+        setIsOpen(false);
+        form.reset({ imageUrl: '', altText: '' });
+      }
     }
   }
 

@@ -15,6 +15,7 @@ import {
   Strikethrough,
 } from '../ui/Icons';
 import HandleIframe from './HandleIframe';
+import { UploadFn } from '../../types/types';
 
 const isImageSelection = (editor: Editor | any) => {
   return (
@@ -36,7 +37,7 @@ const BubbleMenuTipTap = ({
   imageUploadMethod,
 }: {
   editor: Editor | null;
-  imageUploadMethod?: (imageFile: any) => Promise<string>;
+  imageUploadMethod: UploadFn;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
