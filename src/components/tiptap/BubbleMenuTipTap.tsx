@@ -51,7 +51,7 @@ const BubbleMenuTipTap = ({
           tippyOptions={{ duration: 100 }}
           className={`${
             !isEmbeddable(editor)
-              ? 'bg-gray-200 dark:bg-gray-700 flex gap-2 p-2 rounded-md min-w-fit'
+              ? 'bg-gray-200 dark:bg-gray-700 flex gap-2 p-2 rounded-md min-w-fit bubbleMenuClasses'
               : ''
           }`}
         >

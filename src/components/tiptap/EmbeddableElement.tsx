@@ -100,7 +100,7 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
         style={{ height: '150px' }}
         className={`${
           node.attrs.isVisible ? 'flex' : 'hidden'
-        } cursor-pointer  bg-gray-200 dark:bg-gray-700 w-full gap-4  border-dashed dark:border-gray-600 border-gray-400 border-2 rounded-xl  justify-center items-center`}
+        } embeddedElementClass cursor-pointer  bg-gray-200 dark:bg-gray-700 w-full gap-4  border-dashed dark:border-gray-600 border-gray-400 border-2 rounded-xl  justify-center items-center`}
       >
         <Tippy
           interactive={true}
