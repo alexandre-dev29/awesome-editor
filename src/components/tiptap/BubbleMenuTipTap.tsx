@@ -14,6 +14,7 @@ import {
   LinkIcon,
   Strikethrough,
 } from '../ui/Icons';
+import HandleIframe from './HandleIframe';
 
 const isImageSelection = (editor: Editor | any) => {
   return (
@@ -26,7 +27,7 @@ const isEmbeddable = (editor: Editor | any) => {
   return (
     editor?.state.selection.node &&
     editor.state.selection.node.type &&
-    editor.state.selection.node.type.name === 'embeddableElement'
+    editor.state.selection.node.type.name === 'iframe'
   );
 };
 
@@ -40,6 +41,7 @@ const BubbleMenuTipTap = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isModalImageOpen, setIsModalImageOpen] = useState(false);
+  const [isIframeModalOpened, setIsIframeModalOpened] = useState(false);
 
   return (
     <>
@@ -49,11 +51,16 @@ const BubbleMenuTipTap = ({
           tippyOptions={{ duration: 100 }}
           className={`${
             !isEmbeddable(editor)
-              ? 'bg-gray-200 dark:bg-gray-700 flex gap-2 p-2 rounded-md'
+              ? 'bg-gray-200 dark:bg-gray-700 flex gap-2 p-2 rounded-md min-w-fit'
               : ''
           }`}
         >
           <HandleLinks editor={editor} isOpen={isOpen} setIsOpen={setIsOpen} />
+          <HandleIframe
+            editor={editor}
+            isOpen={isIframeModalOpened}
+            setIsOpen={setIsIframeModalOpened}
+          />
           <HandleProgrammingLanguage
             editor={editor}
             isOpen={isLanguageOpen}
@@ -69,7 +76,7 @@ const BubbleMenuTipTap = ({
 
           {!isEmbeddable(editor) ? (
             !isImageSelection(editor) ? (
-              <div className={'flex gap-2'}>
+              <div className={'flex gap-2 min-w-fit'}>
                 <Toggle
                   onClick={() => editor.chain().focus().toggleBold().run()}
                   variant={'outline'}
@@ -176,7 +183,16 @@ const BubbleMenuTipTap = ({
               </div>
             )
           ) : (
-            ''
+            <div className={'pr-2.5'}>
+              <EditIcon
+                className={
+                  'cursor-pointer transition-all duration-300 hover:scale-105 transform-gpu'
+                }
+                onClick={() => {
+                  setIsIframeModalOpened(true);
+                }}
+              />
+            </div>
           )}
         </BubbleMenu>
       )}

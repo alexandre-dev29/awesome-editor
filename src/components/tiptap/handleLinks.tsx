@@ -69,7 +69,7 @@ const HandleLinks = ({
                   <FormItem>
                     <FormLabel>Url</FormLabel>
                     <FormControl>
-                      <Input placeholder="ex: https://google.com" {...field} />
+                      <Input placeholder="ex: https://youtube.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

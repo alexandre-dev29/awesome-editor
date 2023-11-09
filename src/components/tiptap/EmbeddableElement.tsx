@@ -59,8 +59,6 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
       if (result) {
         const youtubeId = result[1];
         const finalYoutubeUrl = `https://www.youtube.com/embed/${youtubeId}?feature=oembed`;
-        console.log(`from : ${from}`);
-        console.log(`to : ${to}`);
         editor.commands.setIframe({ src: finalYoutubeUrl });
         editor.commands.deleteRange({ from, to });
       }
@@ -102,7 +100,7 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
         style={{ height: '150px' }}
         className={`${
           node.attrs.isVisible ? 'flex' : 'hidden'
-        } cursor-pointer  bg-gray-200 w-full gap-4  border-dashed dark:border-gray-600 border-gray-400 border-2 rounded-xl  justify-center items-center`}
+        } cursor-pointer  bg-gray-200 dark:bg-gray-700 w-full gap-4  border-dashed dark:border-gray-600 border-gray-400 border-2 rounded-xl  justify-center items-center`}
       >
         <Tippy
           interactive={true}
@@ -150,7 +148,7 @@ const EmbeddableTipTapComponent: React.FC<EmbeddableElementProp> = ({
           <p></p>
         </Tippy>
         {getPlaceholderIcon()}
-        <span>Insert a {`${node.attrs.embeddedType} link`} link</span>
+        <span>Insert a {`${node.attrs.embeddedType}`} link</span>
       </div>
     </NodeViewWrapper>
   );

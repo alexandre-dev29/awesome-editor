@@ -81,7 +81,11 @@ class CommandList extends Component {
                   'itemIcon bg-gray-100 dark:bg-gray-400 p-2 rounded-md'
                 }
               >
-                {<item.icon className={'w-[1.50rem] h-[1.50rem]'} />}
+                {
+                  <item.icon
+                    className={'w-[1.50rem] h-[1.50rem] dark:text-white'}
+                  />
+                }
               </div>
               <div className={'flex flex-col'}>
                 <p className={'font-bold text-foreground'}>{item.title}</p>
